@@ -7,7 +7,7 @@ General
 scriptVersion(int version) : boolean
      Checks if the webview is running on a specific version.
 
-sensorOn(int type, double period, [String callback]) : void
+sensorOn(int type, double period, [Function callback]) : void
      Turn on the sensor and produce data no faster than the specific period.  Best used with WS.sensor like WS.sensorOn(WS.sensor('light'), .5).
      Optional callback name that is called at most once per period of the form `function callback(data)` with data being an object with the properties:
 
@@ -16,7 +16,8 @@ sensorOn(int type, double period, [String callback]) : void
      :timestamp(double): Epoch seconds from when we get the sensor sample (use this instead of Raw unless you know better)
      :timestampRaw(long): Potentially differs per sensor (we use what they give us if available), but currently all but the light sensor are nanosec from device uptime
      :values(double[]): Array of float values (see WS.sensor docs for description)
-             For the Android built in sensors see the Android docs for their values, custom values are:
+
+              For the Android built in sensors see the Android docs for their values, custom values are:
                 - battery: Values [battery_percentage] (same as displayed in the Glass settings)
                 - pupil: Values [pupil_y, pupil_x, radius]
                 - gps: Values [lat, lon]
@@ -31,9 +32,9 @@ say(String message) : void
 qr(String callback) : void
    Open a QR scanner, return scan results via a callback from zxing
 
-   * Callback has parameters of the form function callback(data, format)
-   * data(string): The scanned data (e.g., http://wearscript.com) base64 encoded (e.g., aHR0cDovL3dlYXJzY3JpcHQuY29t) as a security precaution.  Decode by doing atob(data) in javascript.
-   * format(string): The format of the data (e.g., QR_CODE)
+   Callback of the form `function mycallbac(data, format)`
+     :data(string): The scanned data (e.g., http://wearscript.com) base64 encoded (e.g., aHR0cDovL3dlYXJzY3JpcHQuY29t) as a security precaution.  Decode by doing atob(data) in javascript.
+     :format(string): The format of the data (e.g., QR_CODE)
 
 
 log(String message) : void
