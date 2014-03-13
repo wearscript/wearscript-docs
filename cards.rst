@@ -3,6 +3,7 @@ GDK Cards
 WearScript uses an abstraction called a CardTree that allows for a hierarchy of cards where a node can optionally have either a menu or another set of cards beneath it and every card can have a tap/select callback.  The syntax is overloaded to make common functionality concise.
 
 The following displays a GDK card (consists of a body and footer)
+
 .. code-block:: javascript
 
     var tree = new WS.Cards();
@@ -12,6 +13,7 @@ The following displays a GDK card (consists of a body and footer)
 
 
 Lets add another card
+
 .. code-block:: javascript
 
     var tree = new WS.Cards();
@@ -21,6 +23,7 @@ Lets add another card
     WS.displayCardTree();
 
 Select and tap callbacks are optional arguments
+
 .. code-block:: javascript
 
     var tree = new WS.Cards();
@@ -31,6 +34,7 @@ Select and tap callbacks are optional arguments
 
 
 A menu is added with alternating title and callback arguments at the end of the parameter list.  Tap/select parameters (if present) precede them.
+
 .. code-block:: javascript
 
     var tree = new WS.Cards();
