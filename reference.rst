@@ -9,20 +9,18 @@ scriptVersion(int version) : boolean
 
 sensorOn(int type, double period, [String callback]) : void
      Turn on the sensor and produce data no faster than the specific period.  Best used with WS.sensor like WS.sensorOn(WS.sensor('light'), .5).
-     Optional callback name that is called at most once per period.
+     Optional callback name that is called at most once per period of the form `function callback(data)` with data being an object with the properties:
 
-     * Sensor values
-     * For the Android built in sensors see the Android docs for their values, custom values are...
-     * battery: Values [battery_percentage] (same as displayed in the Glass settings)
-     * pupil: Values [pupil_y, pupil_x, radius]
-     * gps: Values [lat, lon]
-
-     * Callback has parameters of the form function callback(data) {} with "data" being an object of the form property(value type) of...
      :name(string): Unique sensor name (uses Android name if one exists)
      :type(int): Unique sensor type (uses Android type if one exists), convert between them using WS.sensor(name) -> type
      :timestamp(double): Epoch seconds from when we get the sensor sample (use this instead of Raw unless you know better)
      :timestampRaw(long): Potentially differs per sensor (we use what they give us if available), but currently all but the light sensor are nanosec from device uptime
      :values(double[]): Array of float values (see WS.sensor docs for description)
+             For the Android built in sensors see the Android docs for their values, custom values are:
+                - battery: Values [battery_percentage] (same as displayed in the Glass settings)
+                - pupil: Values [pupil_y, pupil_x, radius]
+                - gps: Values [lat, lon]
+
 
 sensorOff(int type) : void
    Turns off sensor
