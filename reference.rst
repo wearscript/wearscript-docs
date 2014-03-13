@@ -56,20 +56,20 @@ audioOn() : void
 audioOff() : void
   Stops logging noise
 
-cameraOn(double period) : void
-  Camera frames are output based on the `cameraCallback` and `dataLog` options.
+cameraOn(double imagePeriod, int maxHeight, int maxWidth, boolean background) : void
+  Continuously capture camera frames. Grab output via cameraCallback.
 
-cameraPhoto() : void
-  Take a picture and save to the SD card.
+cameraCallback(int type, Function callback) : void
+  Type is 0 for the built-in camera and 1 for a remote camera. Callback goes to `callback(String imageb64)`.
+
+cameraPhoto(Function callback) : void
+  Take a picture and callback to `callback(String imageb64)` with a base64 encoded jpeg.
+
+cameraPhotoPath(Function calback) : void
+  Take a picture and save it to the SD card and callback to `callback(String path)`. Can be used as src attribute for an image.
 
 cameraVideo() : void
   Record a video and save to the SD card.
-
-cameraCallback(int type, String callback) : void
-  Type 0=local camera, 1=remote camera (subject to change).
-
-  * Callback has parameters of the form function `callback(String imageb64)`
-  * imageb64 being the image represented as a base64 encoded jpeg
 
 cameraOff() : void
   Turns off camera
