@@ -4,7 +4,7 @@ WearScript uses an abstraction called a CardTree that allows for a hierarchy of 
 
 The following displays a GDK card (consists of a body and footer)
 
-.. raw:: javascript
+.. code-block:: javascript
 
     var tree = new WS.Cards();
     tree.add('Body text', 'Footer text');
@@ -14,7 +14,7 @@ The following displays a GDK card (consists of a body and footer)
 
 Lets add another card
 
-.. raw:: javascript
+.. code-block:: javascript
 
     var tree = new WS.Cards();
     tree.add('Body 0', 'Footer 0');
@@ -24,7 +24,7 @@ Lets add another card
 
 Select and tap callbacks are optional arguments.  If a card doesn't have any action on tap (i.e., a tap callback, subtree, or menu) it will use the "disallowed" sound.
 
-.. raw:: javascript
+.. code-block:: javascript
 
     var tree = new WS.Cards();
     tree.add('Body 0', 'Footer 0', function () {WS.say('Selected')});
@@ -35,7 +35,7 @@ Select and tap callbacks are optional arguments.  If a card doesn't have any act
 
 A menu is added with alternating title and callback arguments at the end of the parameter list.  Tap/select parameters (if present) precede them.
 
-.. raw:: javascript
+.. code-block:: javascript
 
     var tree = new WS.Cards();
     tree.add('Body 0', 'Footer 0', 'Say 0', function () {WS.say('Say 0')}, 'Say 1', function () {WS.say('Say 1')});
@@ -46,7 +46,7 @@ A menu is added with alternating title and callback arguments at the end of the 
 
 A subtree of cards is added by creating another set of cards and placing it as the last parameter (may only have a menu or a subtree for a card).  There is no depth limit for subtrees.
 
-.. raw:: javascript
+.. code-block:: javascript
 
     var tree = new WS.Cards();
     tree.add('Body 0', 'Footer 0');
@@ -61,7 +61,7 @@ The GDK cards are limited in the layouts provided and the Mirror API provides mo
 
 First put the html in a script tag
 
-.. raw:: html
+.. code-block:: html
 
     <script type="text/html" id="tpl_card0">
 	<article>
@@ -82,7 +82,7 @@ First put the html in a script tag
 
 Then refer to it in javascript using WS.addHTML
 
-.. raw:: javascript
+.. code-block:: javascript
 
     var tree = new WS.Cards();
     tree.addHTML('tpl_card0');
