@@ -18,11 +18,11 @@ sensorOn(int type, double period, [String callback]) : void
      * gps: Values [lat, lon]
 
      * Callback has parameters of the form function callback(data) {} with "data" being an object of the form property(value type) of...
-     * name(string): Unique sensor name (uses Android name if one exists)
-     * type(int): Unique sensor type (uses Android type if one exists), convert between them using WS.sensor(name) -> type
-     * timestamp(double): Epoch seconds from when we get the sensor sample (use this instead of Raw unless you know better)
-     * timestampRaw(long): Potentially differs per sensor (we use what they give us if available), but currently all but the light sensor are nanosec from device uptime
-     * values(double[]): Array of float values (see WS.sensor docs for description)
+     :name(string): Unique sensor name (uses Android name if one exists)
+     :type(int): Unique sensor type (uses Android type if one exists), convert between them using WS.sensor(name) -> type
+     :timestamp(double): Epoch seconds from when we get the sensor sample (use this instead of Raw unless you know better)
+     :timestampRaw(long): Potentially differs per sensor (we use what they give us if available), but currently all but the light sensor are nanosec from device uptime
+     :values(double[]): Array of float values (see WS.sensor docs for description)
 
 sensorOff(int type) : void
    Turns off sensor
