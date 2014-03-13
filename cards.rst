@@ -22,7 +22,7 @@ Lets add another card
     WS.cardTree(tree);
     WS.displayCardTree();
 
-Select and tap callbacks are optional arguments
+Select and tap callbacks are optional arguments.  If a card doesn't have any action on tap (i.e., a tap callback, subtree, or menu) it will use the "disallowed" sound.
 
 .. code-block:: javascript
 
@@ -54,5 +54,38 @@ A subtree of cards is added by creating another set of cards and placing it as t
     subtree.add('Sub Body 0', 'Sub Footer 0');
     subtree.add('Sub Body 1', 'Sub Footer 1');
     tree.add('Body 1', 'Footer 1', subtree);
+    WS.cardTree(tree);
+    WS.displayCardTree();
+
+The GDK cards are limited in the layouts provided and the Mirror API provides more formatting options with HTML.  We've ported much of this functionality without using Mirror so that more complex layouts (e.g., lists) can be used.  Currently unsupported features include auto-paginate and auto-size.  The syntax is that you create a <script> tag with the content (same format as Mirror accepts), then pass the ID of that tag to tree.addHTML(id) which can take all of the same options previously described (e.g., callbacks, menus, subtrees).  Both card types can co-exist in the CardTree as illustrated below.
+
+First put the html in a script tag.
+
+.. code-block:: html
+
+    <script type="text/html" id="tpl_card0">
+	<article>
+	  <section>
+	    <ul class="text-x-small">
+	      <li>Gingerbread</li>
+	      <li>Chocolate Chip Cookies</li>
+	      <li>Tiramisu</li>
+	      <li>Donuts</li>
+	      <li>Sugar Plum Gummies</li>
+	    </ul>
+	  </section>
+	  <footer>
+	    <p>Grocery list</p>
+	  </footer>
+	</article>
+    </script>
+
+Then refer to it in javascript using WS.addHTML.
+
+.. code-block:: javascript
+
+    var tree = new WS.Cards();
+    tree.addHTML('tpl_card0');
+    tree.add('Body 1', 'Footer 1');
     WS.cardTree(tree);
     WS.displayCardTree();
