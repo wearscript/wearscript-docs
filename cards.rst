@@ -57,7 +57,7 @@ A subtree of cards is added by creating another set of cards and placing it as t
     WS.cardTree(tree);
     WS.displayCardTree();
 
-The GDK cards are limited in the layouts provided and the Mirror API provides more formatting options with HTML.  We've ported much of this functionality without using Mirror so that more complex layouts (e.g., lists) can be used.  Currently unsupported features include auto-paginate and auto-size.  The syntax is that you create a <script> tag with the content (same format as Mirror accepts), then pass the ID of that tag to tree.addHTML(id) which can take all of the same options previously described (e.g., callbacks, menus, subtrees).  Both card types can co-exist in the CardTree as illustrated below.
+The GDK cards are limited in the layouts provided and the Mirror API provides more formatting options with HTML.  We've ported much of this functionality without using Mirror so that more complex layouts (e.g., lists) can be used.  Currently unsupported features include auto-paginate and auto-size.  The syntax is that you create a <script> tag with the content (same format as Mirror accepts), then pass the ID of that tag to tree.addHTML(id) which can take all of the same options previously described (e.g., callbacks, menus, subtrees).  Both card types can co-exist in the CardTree as illustrated below.  For several examples of HTML cards checkout https://api.picar.us/wearscriptdev/#/gist/9477514/glass.html
 
 First put the html in a script tag
 
