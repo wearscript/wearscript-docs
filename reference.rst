@@ -29,7 +29,7 @@ sensorOff(int type) : void
 say(String message) : void
    Uses Text-to-Speach to read text
 
-qr(String callback) : void
+qr(Function callback) : void
    Open a QR scanner, return scan results via a callback from zxing
 
    Callback of the form `function mycallbac(data, format)`
@@ -76,7 +76,7 @@ activityCreate() : void
 activityDestroy() : void
   Destroys the current activity.
 
-wifiOn([String callback]) : void
+wifiOn([Function callback]) : void
   Turn on wifi scanning with optional callback
 
   * Callback has parameters of the form function callback(results) where results is an array of objects each of the form following `ScanResult <http://developer.android.com/reference/android/net/wifi/ScanResult.html>`_ except for the timestamp...
@@ -93,7 +93,7 @@ wifiScan() : void
 wifiOff() : void
   Turn off wifi
 
-serverConnect(String server, String callback) : void
+serverConnect(String server, Function callback) : void
   Connects to the WearScript server, if given '{{WSUrl}}' as the server it will substitute the user configured server.  Some commands require a server connection.
 
   * Callback takes no parameters and is called when a connection is made, if there is a reconnection it will be called again.
@@ -120,7 +120,7 @@ subscribe(String channel, Function callback) : void
 
 GDK-only
 --------
-gestureCallback(String event, String callback) : void
+gestureCallback(String event, Function callback) : void
   Register to get gesture events using the string of one of the events below (following GDK names, see below).
 
   * Each of these follows the `parameters provided by the GDK <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/GestureDetector>`_
@@ -129,7 +129,7 @@ gestureCallback(String event, String callback) : void
   * onScroll(float displacement, float delta, float velocity):
   * onTwoFingerScroll(float displacement, float delta, float velocity):
 
-speechRecognize(String prompt, String callback) : void
+speechRecognize(String prompt, Function callback) : void
   Displays the prompt and calls your callback with the recognized speech as a string
 
   * Callback has parameters of the form function `callback(String recognizedText)`
@@ -152,7 +152,7 @@ cardDelete(int position) : void
 cardModify(int position, JSON card) : void
   Modify (replaces) a card at the selected position index.
 
-cardCallback(String event, String callback) : void
+cardCallback(String event, Function callback) : void
   Register to get card callback events using hte string of one of the events below (following GDK names, see below).
 
   * Each of these follows the `callbacks of the same name <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/widget/CardScrollView>`_ in the GDK
