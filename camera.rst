@@ -5,6 +5,19 @@ Camera
 cameraOn(double imagePeriod, [int maxHeight, int maxWidth, Function callback]) : void
   Continuously capture camera frames. Grab output via cameraCallback.
 
+.. code-block:: html
+
+    <html style="width:100%; height:100%; overflow:hidden">
+    <body style="width:100%; height:100%; overflow:hidden; margin:0">
+    <img width="640" height="360" id="image" \>
+    <script>
+    function main() {
+	if (WS.scriptVersion(1)) return;
+	WS.cameraOn(.5, 180, 320, function (x) {document.getElementById('image').setAttribute('src', 'data:image/jpg;base64,' + x)});
+    }
+    window.onload = main;
+    </script></body></html>
+
 cameraPhoto(Function callback) : void
   Take a picture and callback to `callback(String imageb64)` with a base64 encoded jpeg.
 
