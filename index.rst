@@ -51,20 +51,16 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
     :hidden:
     :maxdepth: 1
 
-    start
-    setup-client
-    setup-server
     cards
     input
     pubsub
     camera
     arduino
     ar
-    tips
-    hacking
-    wire
-    contributing    
     eyetracking
+    tips
+    wire
+    contributing
 
 About
 -----

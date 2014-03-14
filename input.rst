@@ -19,7 +19,7 @@ gestureCallback(String event, Function callback) : void
         WS.say(gesture);
     });
     WS.gestureCallback('onFingerCountChanged', function (i, i2) {
-        WS.say('was ' + i + ' is ' + i2);
+	WS.log('onFingerCountChanged: ' + i + ', ' + i2);
     });
     WS.gestureCallback('onScroll', function (v, v2, v3) {
 	WS.log('onScroll: ' + v + ', ' + v2 + ', ' + v3);
@@ -63,7 +63,7 @@ speechRecognize(String prompt, Function callback) : void
 qr(Function callback) : void
    Open a QR scanner, return scan results via a callback from zxing
 
-   Callback of the form `function mycallbac(data, format)`
+   Callback of the form `function mycallback(data, format)`
      :data(string): The scanned data (e.g., http://wearscript.com) base64 encoded (e.g., aHR0cDovL3dlYXJzY3JpcHQuY29t) as a security precaution.  Decode by doing atob(data) in javascript.
      :format(string): The format of the data (e.g., QR_CODE)
 
