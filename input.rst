@@ -56,7 +56,6 @@ speechRecognize(String prompt, Function callback) : void
 .. code-block:: javascript
 
     WS.speechRecognize('Say Something', function speech(data) {
-        WS.log('speech: ' + data);
         WS.say('you said ' + data);
     });
 
@@ -64,7 +63,7 @@ qr(Function callback) : void
    Open a QR scanner, return scan results via a callback from zxing
 
    Callback of the form `function mycallback(data, format)`
-     :data(string): The scanned data (e.g., http://wearscript.com) base64 encoded (e.g., aHR0cDovL3dlYXJzY3JpcHQuY29t) as a security precaution.  Decode by doing atob(data) in javascript.
+     :data(string): The scanned data (e.g., http://wearscript.com) is returned
      :format(string): The format of the data (e.g., QR_CODE)
 
 .. code-block:: javascript
