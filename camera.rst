@@ -46,7 +46,7 @@ cameraPhoto([Function callback]) : void
   Take a picture and save it to the SD card and callback to `callback(String path)`. Can be used as src attribute for an image.
 
 
-.. code-block:: html
+.. code-block:: guess
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
@@ -65,7 +65,7 @@ cameraPhoto([Function callback]) : void
 cameraPhotoData([Function callback]) : void
   Take a picture and callback to `callback(String imageb64)` with a base64 encoded jpeg.
 
-.. code-block:: html
+.. code-block:: guess
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
