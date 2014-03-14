@@ -6,47 +6,33 @@ gestureCallback(String event, Function callback) : void
 
   * Each of these follows the `parameters provided by the GDK <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/GestureDetector>`_
   * onGesture(String gesture): The gestures that can be returned are `listed here <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/Gesture>`_: LONG_PRESS, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT, TAP, THREE_LONG_PRESS, THREE_TAP, TWO_LONG_PRESS, TWO_SWIPE_RIGHT, TWO_SWIPE_UP, TWO_TAP
+  * onGesture<GESTURE>(): Shorthand for a specific gesture (e.g., onGestureTAP).
   * onFingerCountChanged(int previousCount, int currentCount):
   * onScroll(float displacement, float delta, float velocity):
   * onTwoFingerScroll(float displacement, float delta, float velocity):
+  * onEyeGesture(String gesture): One of WINK, DOUBLE_WINK, DOUBLE_BLINK, DON, DOFF
+  * onEyeGesture<GESTURE>: Shorthand for a specific gesture (e.g., onEyeGestureWINK)
 
 .. code-block:: javascript
 
     WS.gestureCallback('onGesture', function (gesture) {
         WS.say(gesture);
     });
-
+    WS.gestureCallback('onFingerCountChanged', function (i, i2) {
+        WS.say('was ' + i + ' is ' + i2);
+    });
+    WS.gestureCallback('onScroll', function (v, v2, v3) {
+	WS.log('onScroll: ' + v + ', ' + v2 + ', ' + v3);
+    });
+    WS.gestureCallback('onTwoFingerScroll', function (v, v2, v3) {
+	WS.log('onTwoFingerScroll: ' + v + ', ' + v2 + ', ' + v3);
+    });
 
 .. code-block:: javascript
 
     WS.gestureCallback('onGestureTAP', function () {
         WS.say('tapped');
     });
-
-.. code-block:: javascript
-
-    WS.gestureCallback('onFingerCountChanged', function (i, i2) {
-        WS.say('was ' + i + ' is ' + i2);
-    });
-
-.. code-block:: javascript
-
-    WS.gestureCallback('onFingerCountChanged', function (i, i2) {
-        WS.say('was ' + i + ' is ' + i2);
-    });
-
-.. code-block:: javascript
-
-    WS.gestureCallback('onScroll', function (v, v2, v3) {
-	WS.log('onScroll: ' + v + ', ' + v2 + ', ' + v3);
-    });
-
-.. code-block:: javascript
-
-    WS.gestureCallback('onTwoFingerScroll', function (v, v2, v3) {
-	WS.log('onTwoFingerScroll: ' + v + ', ' + v2 + ', ' + v3);
-    });
-
 
 .. code-block:: javascript
 
