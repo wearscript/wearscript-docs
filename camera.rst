@@ -1,11 +1,10 @@
 Camera
 ======
 
-
 cameraOn(double imagePeriod, [int maxHeight, int maxWidth, Function callback]) : void
   Continuously capture camera frames. Grab output via cameraCallback.
 
-.. code-block:: html
+.. code-block:: guess
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
@@ -23,7 +22,7 @@ cameraOn(double imagePeriod, [int maxHeight, int maxWidth, Function callback]) :
 cameraOff() : void
   Turns off camera
 
-.. code-block:: html
+.. code-block:: guess
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
@@ -83,7 +82,7 @@ cameraPhotoData([Function callback]) : void
 cameraVideo([Function callback]) : void
   Record a video and save to the SD card.
 
-.. code-block:: html
+.. code-block:: guess
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">

@@ -61,7 +61,7 @@ The GDK cards are limited in the layouts provided and the Mirror API provides mo
 
 First put the html in a script tag
 
-.. code-block:: html
+.. code-block:: guess
 
     <script type="text/html" id="tpl_card0">
 	<article>
