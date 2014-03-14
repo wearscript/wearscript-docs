@@ -4,14 +4,15 @@ User Input
 gestureCallback(String event, Function callback) : void
   Register to get gesture events using the string of one of the events below (following GDK names, see below).
 
-  * Each of these follows the `parameters provided by the GDK <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/GestureDetector>`_
-  * onGesture(String gesture): The gestures that can be returned are `listed here <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/Gesture>`_: LONG_PRESS, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT, TAP, THREE_LONG_PRESS, THREE_TAP, TWO_LONG_PRESS, TWO_SWIPE_RIGHT, TWO_SWIPE_UP, TWO_TAP
-  * onGesture<GESTURE>(): Shorthand for a specific gesture (e.g., onGestureTAP).
-  * onFingerCountChanged(int previousCount, int currentCount):
-  * onScroll(float displacement, float delta, float velocity):
-  * onTwoFingerScroll(float displacement, float delta, float velocity):
-  * onEyeGesture(String gesture): One of WINK, DOUBLE_WINK, DOUBLE_BLINK, DON, DOFF
-  * onEyeGesture<GESTURE>: Shorthand for a specific gesture (e.g., onEyeGestureWINK)
+  Event Types
+  Each of these follows the `parameters provided by the GDK <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/GestureDetector>`_
+          :onGesture(String gesture): The gestures that can be returned are `listed here <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/Gesture>`_: LONG_PRESS, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT, TAP, THREE_LONG_PRESS, THREE_TAP, TWO_LONG_PRESS, TWO_SWIPE_RIGHT, TWO_SWIPE_UP, TWO_TAP
+          :onGesture<GESTURE>(): Shorthand for a specific gesture (e.g., onGestureTAP).
+          :onFingerCountChanged(int previousCount, int currentCount):
+          :onScroll(float displacement, float delta, float velocity):
+          :onTwoFingerScroll(float displacement, float delta, float velocity):
+          :onEyeGesture(String gesture): One of WINK, DOUBLE_WINK, DOUBLE_BLINK, DON, DOFF
+          :onEyeGesture<GESTURE>: Shorthand for a specific gesture (e.g., onEyeGestureWINK)
 
 .. code-block:: javascript
 
