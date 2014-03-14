@@ -2,7 +2,7 @@ Camera
 ======
 
 
-cameraOn(double imagePeriod, int maxHeight, int maxWidth) : void
+cameraOn(double imagePeriod, [int maxHeight, int maxWidth, Function callback]) : void
   Continuously capture camera frames. Grab output via cameraCallback.
 
 cameraPhoto(Function callback) : void

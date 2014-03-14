@@ -51,10 +51,11 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
     :hidden:
     :maxdepth: 1
 
+    basics
     cards
     input
-    pubsub
     camera
+    pubsub
     arduino
     ar
     eyetracking
