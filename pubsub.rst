@@ -82,17 +82,20 @@ Example: Ping/Pong
 	}
     }
 
+
+https://raw.github.com/wearscript/msgpack-javascript/master/msgpack.js
+https://raw.github.com/wearscript/wearscript-js/master/wearscript-client.js
+
 .. code-block:: html
 
-    <!-- JavaScript in a webpage -->
-    <html><head><script src="wearscript-client.js"></script></head>
+    <!-- JavaScript client in a webpage -->
+    <html><head><script src="msgpack.js"></script><script src="wearscript-client.js"></script></head>
     <body><script>
-    var ws = new WearScriptConnection(new WebSocket(URL), "client", "demo");
+    var ws = new WearScriptConnection(new WebSocket('CLIENT ENDPOINT HERE'), "client", "demo");
     ws.subscribe('ping', function (chan, resultChan, timestamp) {
-        ws.publish(resultChan, timestamp, (new Date).getTime() / 1000, ws.groupDevice());
+	ws.publish(resultChan, timestamp, (new Date).getTime() / 1000, ws.groupDevice);
     });
     </script></body></html>
-
 
 Example: Image/Sensor Stream
 ----------------------------
