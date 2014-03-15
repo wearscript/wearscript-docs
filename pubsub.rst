@@ -38,45 +38,42 @@ Example: Ping/Pong
     import argparse
     import time
 
-
     def callback(ws, **kw):
 
 	def get_ping(chan, resultChan, timestamp):
-	    ws.publish(resultChan, timestamp, time.time())
+	    ws.publish(resultChan, timestamp, time.time(), ws.group_device)
 
-	ws.subscribe('ping', get_ping, ws.group_device())
+	ws.subscribe('ping', get_ping)
 	ws.handler_loop()
 
     wearscript.parse(callback, argparse.ArgumentParser())
 
-.. code-block:: go
+.. code-block:: Go
 
     // Go: Server
     package main
 
     import (
-	   "code.google.com/p/go.net/websocket"
-	   "github.com/OpenShades/wearscript-go/wearscript"
-	   "fmt"
-	   "net/http"
-           "time"
+        "code.google.com/p/go.net/websocket"
+        "github.com/OpenShades/wearscript-go/wearscript"
+        "fmt"
+        "net/http"
+        "time"
     )
-
     func wshandler(ws *websocket.Conn) {
-        // Single user mode, see wearscript-server for multi-user/device example
-	Manager, err := wearscript.ConnectionManagerFactory("server", "demo")
-	if err != nil {
-	    return
-	}
-	Manager.Subscribe("ping", func (c string, dataBin []byte, data []interface{}) {
-	    resultChan, ok := data[1].(string)
-	    if !ok {return}
-	    Manager.Publish(resultChan, data[2], time.Now().UnixNano() / 1000000000., Manager.groupDevice())
-        })
-	conn, _ := Manager.NewConnection(ws)
-        Manager.HandlerLoop(conn)
+	    // Single user mode, see wearscript-server for multi-user/device example
+	    Manager, err := wearscript.ConnectionManagerFactory("server", "demo")
+	    if err != nil {
+		return
+	    }
+	    Manager.Subscribe("ping", func (c string, dataBin []byte, data []interface{}) {
+	        resultChan, ok := data[1].(string)
+	        if !ok {return}
+	        Manager.Publish(resultChan, data[2], time.Now().UnixNano() / 1000000000., Manager.GroupDevice())
+	    })
+	    conn, _ := Manager.NewConnection(ws)
+	    Manager.HandlerLoop(conn)
     }
-
     func main() {
         http.Handle("/", websocket.Handler(wshandler))
 	err := http.ListenAndServe(":8081", nil)
@@ -84,7 +81,6 @@ Example: Ping/Pong
 	    fmt.Println("Serve error")
 	}
     }
-
 
 .. code-block:: html
 
