@@ -8,6 +8,96 @@ subscribe(String channel, Function callback) : void
   Receives PubSub messages from other devices.  Callback is provided the data expanded (e.g., if ['testchan', 1] is received then callback('testchan', 1) is called).  Using javascript's 'arguments' functionality to get variable length arguments easily.
 
 
+Example: Ping/Pong
+------------------
+
+.. code-block:: html
+
+    <!-- WearScript on Glass/Android -->
+    <html style="width:100%; height:100%; overflow:hidden">
+    <body style="width:100%; height:100%; overflow:hidden; margin:0">
+    <script>
+    function main() {
+	if (WS.scriptVersion(1)) return;
+	WS.serverConnect('{{WSUrl}}', function () {
+	    WS.subscribe('pong', function (chan, timestamp0, timestamp1, groupDevice) {
+	        WS.log('Pong: ' + groupDevice + ': Remote - Glass0: ' + (timestamp1 - timestamp0) + ' Glass1 - Glass0: ' + ((new Date).getTime() / 1000) - timestamp0);
+	    });
+	    setInterval(function () {
+	        WS.publish('ping', 'pong', (new Date).getTime() / 1000);
+	    }, 250);
+	});
+    }
+    window.onload = main;
+    </script></body></html>
+
+.. code-block:: python
+
+    # Python: Client or Server
+    import wearscript
+    import argparse
+    import time
+
+
+    def callback(ws, **kw):
+
+	def get_ping(chan, resultChan, timestamp):
+	    ws.publish(resultChan, timestamp, time.time())
+
+	ws.subscribe('ping', get_ping, ws.group_device())
+	ws.handler_loop()
+
+    wearscript.parse(callback, argparse.ArgumentParser())
+
+.. code-block:: go
+
+    // Go: Server
+    package main
+
+    import (
+	   "code.google.com/p/go.net/websocket"
+	   "github.com/OpenShades/wearscript-go/wearscript"
+	   "fmt"
+	   "net/http"
+           "time"
+    )
+
+    func wshandler(ws *websocket.Conn) {
+        // Single user mode, see wearscript-server for multi-user/device example
+	Manager, err := wearscript.ConnectionManagerFactory("server", "demo")
+	if err != nil {
+	    return
+	}
+	Manager.Subscribe("ping", func (c string, dataBin []byte, data []interface{}) {
+	    resultChan, ok := data[1].(string)
+	    if !ok {return}
+	    Manager.Publish(resultChan, data[2], time.Now().UnixNano() / 1000000000., Manager.groupDevice())
+        })
+	conn, _ := Manager.NewConnection(ws)
+        Manager.HandlerLoop(conn)
+    }
+
+    func main() {
+        http.Handle("/", websocket.Handler(wshandler))
+	err := http.ListenAndServe(":8081", nil)
+	if err != nil {
+	    fmt.Println("Serve error")
+	}
+    }
+
+
+.. code-block:: html
+
+    <!-- JavaScript in a webpage -->
+    <html><head><script src="wearscript-client.js"></script></head>
+    <body><script>
+    var ws = new WearScriptConnection(new WebSocket(URL), "client", "demo");
+    ws.subscribe('ping', function (chan, resultChan, timestamp) {
+        ws.publish(resultChan, timestamp, (new Date).getTime() / 1000, ws.groupDevice());
+    });
+    </script></body></html>
+
+
 Example: Image/Sensor Stream
 ----------------------------
 

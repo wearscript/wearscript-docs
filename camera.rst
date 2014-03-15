@@ -2,7 +2,7 @@ Camera
 ======
 
 cameraOn(double imagePeriod, [int maxHeight, int maxWidth, Function callback]) : void
-  Continuously capture camera frames. Grab output via cameraCallback.
+  Continuously capture camera frames. If a callback is specified it is given the data base64 encoded.
 
 .. code-block:: guess
 
