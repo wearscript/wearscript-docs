@@ -48,7 +48,7 @@ Example: Ping/Pong
 
     wearscript.parse(callback, argparse.ArgumentParser())
 
-.. code-block:: Go
+.. code-block:: guess
 
     // Go: Server
     package main
