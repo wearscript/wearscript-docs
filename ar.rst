@@ -8,8 +8,12 @@ While Glass has a relatively small display and won't be able to create full imme
 
    This shows the relationship between the Prism, Photo, and Preview (640x360) images.
 
-displayWarpView([Array hBigToGlass]) : void
-  Warps each preview image to the display such that it overlaps with what the user sees (works for objects > 7ft away, currently supported resolutions are 640x360 and 1280x720).  If the hBigToGlass homography is not provided a default is used; however, it won't match perfectly, each Glass is slightly different and they only need to be calibrated once.
+hPhotoToGlass: Slightly different for each Glass and good results require calibation (see the wearscript-ar repo).
+hPreviewToPhoto: Each preview image has a different area (not all sizes are supported, see below) however they are constant across devices; however, changes in the underlying Glass camera code have caused changes in the past.
+
+
+displayWarpView([Array hPhotoToGlass]) : void
+  Warps each preview image to the display such that it overlaps with what the user sees (works for objects > 7ft away, currently supported resolutions are 640x360 and 1280x720).  If the hPhotoToGlass homography is not provided a default is used; however, it won't match perfectly, each Glass is slightly different and they only need to be calibrated once.
 
 warpPreviewSampleGlass([Function callback]) : void
   Publishes the next preview image it gets, AR server uses it to match subsequent images to, a local copy is stored and can be drawn on using WS.warpDraw.
