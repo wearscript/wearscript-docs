@@ -46,4 +46,4 @@ Connected to an Arduino (tested with Uno and Due), the following uses the scroll
 Neopixel
 ---------
 
-
+Neopixels are independently addressable LED strips that can display multiple colors, change brightness, and display patterns over time.  Using the included neopixel .ino file and sample script https://api.picar.us/wearscriptdev/#/gist/9390329/glass.html complex patterns can be programmed and executed on the Arduino including loops.
