@@ -60,6 +60,7 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
     arduino
     ar
     eyetracking
+    myo
     tips
     wire
     contributing
