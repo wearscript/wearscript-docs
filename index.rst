@@ -54,6 +54,7 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
     basics
     cards
     input
+    sensors
     camera
     pubsub
     arduino
