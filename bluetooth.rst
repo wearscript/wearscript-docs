@@ -21,6 +21,7 @@ Bluetooth module: http://www.amazon.com/dp/B0093XAV4U
 Arduino code.  Make sure to plug the RX from BT into TX of arduino which is pin 2 below.
 
 .. code-block:: guess
+
     #include <SoftwareSerial.h>
     SoftwareSerial mySerial(3, 2); // RX, TX
     void setup() {
