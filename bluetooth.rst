@@ -3,7 +3,8 @@ Bluetooth
 
 
 Keyboard -> Glass
-==================
+------------------
+
 By connecting a BT keyboard to Glass you can control the timeline and use the keypresses inside WearScript like you would in a normal webpage.  Keyboards like this http://www.amazon.com/dp/B005C6CVAE/ work well with Glass.  First we have to install the Settings.apk so that we can access the pairing options.  Install the Settings.apk from here http://www.glassxe.com/2013/05/23/settings-apk-and-launcher2-apk-from-the-hacking-glass-session-at-google-io/ and start the settings using
 
 .. code-block:: guess
@@ -13,7 +14,7 @@ By connecting a BT keyboard to Glass you can control the timeline and use the ke
 Put your device into a bluetooth pairing mode.  Select Bluetooth, then use the touchpad to select your device.  You'll be asked to type a code using the keyboard and then you are all done.
 
 Arduino <-> Glass
-=============================
+------------------
 
 Bluetooth module: http://www.amazon.com/dp/B0093XAV4U
 
