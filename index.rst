@@ -58,9 +58,11 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
     camera
     pubsub
     arduino
+    bluetooth
     ar
     eyetracking
     myo
+    gist
     tips
     wire
     contributing

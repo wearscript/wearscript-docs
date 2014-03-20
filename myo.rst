@@ -1,5 +1,8 @@
 Myo
 ===
+The Myo uses bluetooth-le and can only be connected to Android Kit Kat devices (e.g., Nexus 5).  As the SDK is not publicly available you'll need to get the Myo binary of WearScript (currently a private branch) from us.  If you are part of the Myo Alpha program we can add you to the repository.
+
+This demonstrates training the Myo, saying out load which gesture is performed.  NONE is produced after a gesture is stopped (e.g., a clenched fist will stay FIST until it is released and then will be NONE).  It also streams the accelerometer, orientation, and gyro to the sensors tab (see WS.dataLog).
 
 .. code-block:: guess
 
