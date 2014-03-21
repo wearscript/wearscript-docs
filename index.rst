@@ -21,31 +21,51 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
   <body style="width:100%; height:100%; overflow:hidden; margin:0">
   <canvas id="canvas" width="640" height="360" style="display:block"></canvas>
   <script>
-  function cb(data) {  // Changes canvas color depending on head rotation
-      if (data['type'] == WS.sensor('orientation')) {
-          ctx.fillStyle = 'hsl(' + data['values'][0] + ', 90%, 50%)'
-          ctx.fillRect(0, 0, 640, 360);
-      }
-  }
   function server() {
       WS.log('Welcome to WearScript');  // Write to Android Log and Playground console
-      WS.say('Welcome to WearScript');  // Text-to-speech
-      // Stream camera images and all sensors to the WearScript Playground Webapp
-      var sensors = ['gps', 'accelerometer', 'magneticField', 'orientation', 'gyroscope',
-                     'light', 'gravity', 'linearAcceleration', 'rotationVector'];
+      WS.say('Welcome to WearScript');  // Text-to-Speech
+      WS.sound('SUCCESS')
+
+      // Changes canvas color with head rotation
+      WS.sensorOn('orientation', .15, function (data) {
+	  ctx.fillStyle = 'hsl(' + data['values'][0] + ', 90%, 50%)'
+	  ctx.fillRect(0, 0, 640, 360);
+      });
+
+      // Stream several sensors (can view in the Sensors tab)
+      var sensors = ['gps', 'accelerometer', 'magneticField', 'gyroscope',
+		     'light', 'gravity', 'linearAcceleration', 'rotationVector'];
       for (var i = 0; i < sensors.length; i++)
-          WS.sensorOn(WS.sensor(sensors[i]), .15, 'cb');
-      WS.cameraOn(2);
+	  WS.sensorOn(sensors[i], .15);
+
+      // Stream camera frames (can view in the Images tab)
+      WS.cameraOn(.25);
       WS.dataLog(false, true, .15);
+
+      // Hookup touch and eye gesture callbacks
+      WS.gestureCallback('onTwoFingerScroll', function (v, v2, v3) {
+	  WS.log('onTwoFingerScroll: ' + v + ', ' + v2 + ', ' + v3);
+      });
+      WS.gestureCallback('onEyeGesture', function (name) {
+	  WS.log('onEyeGesture: ' + name);
+      });
+      WS.gestureCallback('onGesture', function (name) {
+	  WS.log('onGesture: ' + name);
+      });
+      WS.gestureCallback('onFingerCountChanged', function (i, i2) {
+	  WS.log('onFingerCountChanged: ' + i + ', ' + i2);
+      });
+      WS.gestureCallback('onScroll', function (v, v2, v3) {
+	  WS.log('onScroll: ' + v + ', ' + v2 + ', ' + v3);
+      });
   }
   function main() {
-      if (WS.scriptVersion(0)) return;
+      if (WS.scriptVersion(1)) return;
       ctx = document.getElementById('canvas').getContext("2d");
-      WS.serverConnect('{{WSUrl}}', 'server');
+      WS.serverConnect('{{WSUrl}}', server);
   }
   window.onload = main;
   </script></body></html>
-
 
 ..  toctree::
     :hidden:
