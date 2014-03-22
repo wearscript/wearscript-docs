@@ -15,13 +15,7 @@ cameraOff() : void
 
 .. code-block:: javascript
 
-	WS.cameraOn(.5, 180, 320, function (x) {
-	    document.getElementById('image').setAttribute('src', 'data:image/jpg;base64,' + x);
-	});
-
-  setTimeout(function () {
-	    WS.cameraOff();
-	}, 5000);
+  setTimeout(function () {WS.cameraOff();}, 5000);
 
 cameraPhoto([Function callback]) : void
   Take a picture and save it to the SD card and callback to `callback(String path)`. Can be used as src attribute for an image.
