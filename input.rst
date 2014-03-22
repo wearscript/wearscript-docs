@@ -5,13 +5,11 @@ gestureCallback(String event, Function callback) : void
   Register to get gesture events using the string of one of the events below (following GDK names, see below).
 
   Event Types
-  Each of these follows the `parameters provided by the GDK <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/GestureDetector>`_
-
           :onGesture(String gesture): The gestures that can be returned are `listed here <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/Gesture>`_: LONG_PRESS, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT, TAP, THREE_LONG_PRESS, THREE_TAP, TWO_LONG_PRESS, TWO_SWIPE_RIGHT, TWO_SWIPE_UP, TWO_TAP
           :onGesture<GESTURE>(): Shorthand for a specific gesture (e.g., onGestureTAP).
-          :onFingerCountChanged(int previousCount, int currentCount):
-          :onScroll(float displacement, float delta, float velocity):
-          :onTwoFingerScroll(float displacement, float delta, float velocity):
+          :onFingerCountChanged(int previousCount, int currentCount): see `FingerListener <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/GestureDetector.FingerListener#onFingerCountChanged(int, int)>`_ in GDK
+          :onScroll(float displacement, float delta, float velocity): see `ScrollListener <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/GestureDetector.ScrollListener#onScroll(float, float, float)>`_ in GDK
+          :onTwoFingerScroll(float displacement, float delta, float velocity): see `TwoFingerScrollListener <https://developers.google.com/glass/develop/gdk/reference/com/google/android/glass/touchpad/GestureDetector.TwoFingerScrollListener#onTwoFingerScroll(float, float, float)>`_ in GDK
           :onEyeGesture(String gesture): One of WINK, DOUBLE_WINK, DOUBLE_BLINK, DON, DOFF
           :onEyeGesture<GESTURE>: Shorthand for a specific gesture (e.g., onEyeGestureWINK)
 
@@ -53,7 +51,7 @@ gestureCallback(String event, Function callback) : void
 speechRecognize(String prompt, Function callback) : void
   Displays the prompt and calls your callback with the recognized speech as a string
 
-  * Callback has parameters of the form function `callback(String recognizedText)`
+  Callback of the form `function mycallback(String recognizedText)`
 
 .. code-block:: javascript
 
@@ -65,8 +63,8 @@ qr(Function callback) : void
    Open a QR scanner, return scan results via a callback from zxing
 
    Callback of the form `function mycallback(data, format)`
-     :data(string): The scanned data (e.g., http://wearscript.com) is returned
-     :format(string): The format of the data (e.g., QR_CODE)
+     :String data: The scanned data (e.g., http://wearscript.com) is returned
+     :String format: The format of the data (e.g., QR_CODE)
 
 .. code-block:: javascript
 
