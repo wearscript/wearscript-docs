@@ -16,7 +16,7 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
 
 .. code-block:: html
 
-  // Sample WearScript
+  <!-- Sample WearScript -->
   <html style="width:100%; height:100%; overflow:hidden">
   <body style="width:100%; height:100%; overflow:hidden; margin:0">
   <canvas id="canvas" width="640" height="360" style="display:block"></canvas>

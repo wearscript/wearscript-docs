@@ -34,9 +34,9 @@ warpPreviewSampleGlass([Function callback]) : void
 
   * Callback has parameters of the form function `callback(Homography array)`
 
-warpDraw(x, y, radius, r, g, b) : void
-  Draws a circle on the sample image
 
+warpSetOverlay(String imageb64) : void
+  Sets the overlay being warped that corresponds with the last sample selected.
 
 .. code-block:: guess
 

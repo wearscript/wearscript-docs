@@ -11,6 +11,12 @@ By connecting a BT keyboard to Glass you can control the timeline and use the ke
 
   adb am start -a android.intent.action.MAIN -n com.android.settings/.Settings
 
+You may want to remove the settings apk after you are done as it cause annoying crashes on startup
+
+.. code-block:: guess
+
+  adb uninstall com.android.settings
+
 Put your device into a bluetooth pairing mode.  Select Bluetooth, then use the touchpad to select your device.  You'll be asked to type a code using the keyboard and then you are all done.
 
 Arduino <-> Glass
