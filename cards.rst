@@ -95,8 +95,8 @@ Then refer to it in javascript using WS.addHTML
 API
 ----
 
-WS.Cards() : Tree
-  Creates an empty card tree configuration
+WS.Cards : Tree
+  Empty card tree configuration, create with "new WS.Cards()".
 
 Tree.add(String body, String footer, [Function selected, Function tapped], [String menuTitle, Function menuAction]..) : Tree
   Add a card to a tree. Can be chained for fluency

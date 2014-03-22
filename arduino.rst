@@ -19,7 +19,7 @@ To start the manager in server mode (e.g., Glass connect directly to this script
 Basic
 -----
 
-Connected to an Arduino (tested with Uno and Duo), the following uses the scroll gesture to control a servo on Pin 9 and an LED on pin 13 (both specified in the .ino file).  We access them by sending data of the form ["arduinobasic", device, value] where devices index contiguously into servo pins then LEDs (i.e., binary pin, need not control an LED) specified in the .ino file.  For Servos the value is written directly to the servo and for LEDs any non-zero value is "on" and zero is "off".
+Connected to an Arduino (tested with Uno and Due), the following uses the scroll gesture to control a servo on Pin 9 and an LED on pin 13 (both specified in the .ino file).  We access them by sending data of the form ["arduinobasic", device, value] where devices index contiguously into servo pins then LEDs (i.e., binary pin, need not control an LED) specified in the .ino file.  For Servos the value is written directly to the servo and for LEDs any non-zero value is "on" and zero is "off".
 
 .. code-block:: html
 
