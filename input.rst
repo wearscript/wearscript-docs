@@ -1,6 +1,12 @@
 User Input
 ==========
 
+.. raw:: html
+
+  <div style="position: relative;margin-bottom: 30px;padding-bottom: 56.25%;padding-top: 30px; height: 0; overflow: hidden;">
+    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="http://www.youtube.com/embed/f3lzTox9qEE" frameborder="0"></iframe>
+  </div>
+
 gestureCallback(String event, Function callback) : void
   Register to get gesture events using the string of one of the events below (following GDK names, see below).
 
