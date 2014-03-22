@@ -1,5 +1,5 @@
-Gist
-====
+Gist Integration
+=================
 
 .. raw:: html
 
