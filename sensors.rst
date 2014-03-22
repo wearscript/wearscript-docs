@@ -24,15 +24,17 @@ Sensor Types
 ------------
 Sensors have unique names and integer types that are used internally and can be used as WS.sensor('light') which returns 5.  The standard Android sensor types are positive and custom types are given negative numbers.
 
-* pupil: -2
-* gps: -1
-* accelerometer: 1
-* magneticField: 2
-* orientation: 3
-* gyroscope: 4
-* light: 5
-* gravity: 9
-* linearAcceleration: 10
-* rotationVector: 11
-
-
+===================  =======
+      Type            Value
+===================  =======
+pupil                 -2
+gps                   -1
+accelerometer         1
+magneticField         2
+orientation           3
+gyroscope             4
+light                 5
+gravity               9
+linearAcceleration    10
+rotationVector        11
+===================  =======
