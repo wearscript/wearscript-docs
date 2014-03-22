@@ -104,8 +104,10 @@ See `contributors <https://github.com/bwhite/wearscript/graphs/contributors>`_ f
 
 * `Brandyn White (brandyn) <https://plus.google.com/109113122718379096525?rel=author>`_
 * Andrew Miller (amiller)
-* Scott Greenwald (swgreen_mit)
+* Scott Greenwald (scottgwald)
 * Kurtis Nelson (kurtisnelson)
 * Conner Brooks (connerb)
+* Lance Vick (lrvick)
+* Daniel Grove (iShortBus)
 * Justin Chase (jujuman)
 * Alexander Conroy (geilt)
