@@ -34,14 +34,14 @@ Example: Ping/Pong
 
 To start the manager in client mode (i.e., it connects to the Go server) use the following.  All messages are sent example_ping <-internet-> go server <-internet-> glass which means you will have higher latency than connecting directly but you can stil use the Playground fully.  This is normally recommended for development.
 
-.. code-block:: guess
+.. code-block:: bash
 
     python example_ping.py client <client endpoint here>
 
 
 To start the manager in server mode (e.g., Glass connect directly to this script, bypassing the Go server) use the following.  Note that in your script you have to change WS.serverConnect to use your server's ip and port (e.g., ws://localip:localport) which mean you won't get playground connectivity (e.g., no logs, can't resend code) until you stop the script ("Ok Glass" -> "Wear a Script" -> Scroll to Stop).  The benefit is that you can get substantially lower latency connecting directly to your computer.
 
-.. code-block:: guess
+.. code-block:: bash
 
     python example_ping.py server <server port here>
 
@@ -62,7 +62,7 @@ To start the manager in server mode (e.g., Glass connect directly to this script
 
     wearscript.parse(callback, argparse.ArgumentParser())
 
-.. code-block:: guess
+.. code-block:: python
 
     // Go: Server
     package main
@@ -126,7 +126,7 @@ Example: Image/Sensor Stream
 	WS.serverConnect('{{WSUrl}}', function () {
 	    WS.sensorOn('accelerometer', .25);
 	    WS.cameraOn(1);
-	    WS.dataLog(false, true, .15);    
+	    WS.dataLog(false, true, .15);
 	});
     }
     window.onload = main;
