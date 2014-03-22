@@ -1,6 +1,12 @@
 Basics
 ======
 
+.. raw:: html
+
+  <div style="position: relative;margin-bottom: 30px;padding-bottom: 56.25%;padding-top: 30px; height: 0; overflow: hidden;">
+    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="http://www.youtube.com/embed/en5jDhPok_8" frameborder="0"></iframe>
+  </div>
+
 In your Javascript environment, an object `WS` is initialized and injected for you with the following methods.
 
 scriptVersion(int version) : boolean
