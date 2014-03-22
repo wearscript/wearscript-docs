@@ -13,8 +13,7 @@ Motivation and Goals
 * Keep local data local if possible (e.g., glass -> phone shouldn't need to go through a server if they are connected)
 * Pub/Sub over Point-to-Point: Focusing on channels which represent data types naturally handles 0-to-many devices reacting to it.
 * Minimize data transfer, if nothing is listening on a channel then sending to it is a null-op
-* Support a directed-acyclic-graph topology, where local devices can act as hubs (e.g., a phone is a hub for a watch, Glass, and arduino) and connect to other hubs (e.g., a remote s
-erver)
+* Support a directed-acyclic-graph topology, where local devices can act as hubs (e.g., a phone is a hub for a watch, Glass, and arduino) and connect to other hubs (e.g., a remote server)
 * Instead of having strict guarantees about delivery, provide a set of constraints that can be met given the fickle nature of mobile connectivity to eliminate edge cases
 
 Protocol Rules
