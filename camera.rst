@@ -4,11 +4,11 @@ Camera
 cameraOn(double imagePeriod, [int maxHeight, int maxWidth, Function callback]) : void
   Continuously capture camera frames. If a callback is specified it is given the data base64 encoded.
 
-.. code-block:: guess
+.. code-block:: html
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
-    <img width="640" height="360" id="image" \>
+    <img width="640" height="360" id="image" />
     <script>
     function main() {
 	if (WS.scriptVersion(1)) return;
@@ -22,11 +22,11 @@ cameraOn(double imagePeriod, [int maxHeight, int maxWidth, Function callback]) :
 cameraOff() : void
   Turns off camera
 
-.. code-block:: guess
+.. code-block:: html
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
-    <img width="640" height="360" id="image" \>
+    <img width="640" height="360" id="image" />
     <script>
     function main() {
 	if (WS.scriptVersion(1)) return;
@@ -45,11 +45,11 @@ cameraPhoto([Function callback]) : void
   Take a picture and save it to the SD card and callback to `callback(String path)`. Can be used as src attribute for an image.
 
 
-.. code-block:: guess
+.. code-block:: html
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
-    <img width="640" height="360" id="image" \>
+    <img width="640" height="360" id="image" />
     <script>
     function main() {
 	if (WS.scriptVersion(1)) return;
@@ -64,11 +64,11 @@ cameraPhoto([Function callback]) : void
 cameraPhotoData([Function callback]) : void
   Take a picture and callback to `callback(String imageb64)` with a base64 encoded jpeg.
 
-.. code-block:: guess
+.. code-block:: html
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
-    <img width="640" height="360" id="image" \>
+    <img width="640" height="360" id="image" />
     <script>
     function main() {
 	if (WS.scriptVersion(1)) return;
@@ -82,7 +82,7 @@ cameraPhotoData([Function callback]) : void
 cameraVideo([Function callback]) : void
   Record a video and save to the SD card.
 
-.. code-block:: guess
+.. code-block:: html
 
     <html style="width:100%; height:100%; overflow:hidden">
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
