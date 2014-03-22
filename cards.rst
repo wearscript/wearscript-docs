@@ -2,6 +2,8 @@ GDK Cards
 =========
 WearScript uses an abstraction called a CardTree that allows for a hierarchy of cards where a node in the tree can optionally have either a menu or another set of cards beneath it and every card can have a tap/select callback.  The syntax is overloaded to make common functionality concise.
 
+Examples
+--------
 The following displays a GDK card (consists of a body and footer)
 
 .. code-block:: javascript
@@ -57,11 +59,11 @@ A subtree of cards is added by creating another set of cards and placing it as t
     WS.cardTree(tree);
     WS.displayCardTree();
 
-The GDK cards are limited in the layouts provided and the Mirror API provides more formatting options with HTML.  We've ported much of this functionality without using Mirror so that more complex layouts (e.g., lists) can be used.  Currently unsupported features include auto-paginate and auto-size.  The syntax is that you create a <script> tag with the content (same format as Mirror accepts), then pass the ID of that tag to tree.addHTML(id) which can take all of the same options previously described (e.g., callbacks, menus, subtrees).  Both card types can co-exist in the CardTree as illustrated below.  For several examples of HTML cards checkout https://api.picar.us/wearscriptdev/#/gist/9477514/glass.html
+The GDK cards are limited in the layouts provided and the Mirror API provides more formatting options with HTML.  We've ported much of this functionality without using Mirror so that more complex layouts (e.g., lists) can be used.  Currently unsupported features include auto-paginate and auto-size.  The syntax is that you create a <script> tag with the content (same format as Mirror accepts), then pass the ID of that tag to tree.addHTML(id) which can take all of the same options previously described (e.g., callbacks, menus, subtrees).  Both card types can co-exist in the CardTree as illustrated below.  For several examples of HTML cards checkout https://api.wearscript.com/#/gist/9477514/glass.html
 
 First put the html in a script tag
 
-.. code-block:: guess
+.. code-block:: html
 
     <script type="text/html" id="tpl_card0">
 	<article>
@@ -89,3 +91,21 @@ Then refer to it in javascript using WS.addHTML
     tree.add('Body 1', 'Footer 1');
     WS.cardTree(tree);
     WS.displayCardTree();
+
+API
+----
+
+WS.Cards() : Tree
+  Creates an empty card tree configuration
+
+Tree.add(String body, String footer, [Function selected, Function tapped], [String menuTitle, Function menuAction]..) : Tree
+  Add a card to a tree. Can be chained for fluency
+
+Tree.addHtml(String htmlID, [Function selected, Function tapped], [String menuTitle, Function menuAction]..) : Tree
+  Add a full HTML card to the tree. Can be chained for fluency.
+
+WS.cardTree(tree) : void
+  Generates the full card tree in native memory.
+
+WS.displayCardTree() : void
+  Shows the CardScrollView

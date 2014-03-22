@@ -5,7 +5,7 @@ Virtual Machine
 By using the VM you will get a full development environment and server.  This makes it easier to assist with any problems you run into since we can replicate the environment and fixes only need to be applied once to the VM.  If you intend to run this on your personal computer use Vagrant and for servers we recommend EC2.
 
 0a. Install WearScript VM using Vagrant
---------------------------------------
+---------------------------------------
 * with one click: `Click to Download ZIP <https://github.com/OpenShades/wearscript/archive/master.zip>`_ or using git: git clone https://github.com/OpenShades/wearscript.git
 * Install virtual box and the "Oracle VM VirtualBox Extension Pack" (needed for usb) from https://www.virtualbox.org/wiki/Downloads
 * Get/install Vagrant (go here http://downloads.vagrantup.com/ get the newest version for your platform)
