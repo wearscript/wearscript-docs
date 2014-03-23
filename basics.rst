@@ -9,6 +9,8 @@ Basics
 
 In your Javascript environment, an object `WS` is initialized and injected for you with the methods below.  WearScripts run on Glass in a `WebView <http://developer.android.com/reference/android/webkit/WebView.html>`_ which supports standard browser functionality (e.g., dom manipulation, html5 canvas, cookies, local storage, etc.).
 
+To start WearScript from the "Ok Glass" menu say "Ok Glass, Wear a Script".  You can also tap the "Ok Glass" card and scroll to the "Wear a Script" card.
+
 scriptVersion(int version) : boolean
      Checks if the webview is running on a specific version.
 
