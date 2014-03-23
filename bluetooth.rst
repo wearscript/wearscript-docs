@@ -9,7 +9,7 @@ By connecting a BT keyboard to Glass you can control the timeline and use the ke
 
 .. code-block:: bash
 
-  adb am start -a android.intent.action.MAIN -n com.android.settings/.Settings
+  adb shell am start -a android.intent.action.MAIN -n com.android.settings/.Settings
 
 You may want to remove the settings apk after you are done as it cause annoying crashes on startup
 

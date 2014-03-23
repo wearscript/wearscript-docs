@@ -7,7 +7,7 @@ Basics
     <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="http://www.youtube.com/embed/en5jDhPok_8" frameborder="0"></iframe>
   </div>
 
-In your Javascript environment, an object `WS` is initialized and injected for you with the following methods.
+In your Javascript environment, an object `WS` is initialized and injected for you with the methods below.  WearScripts run on Glass in a `WebView <http://developer.android.com/reference/android/webkit/WebView.html>`_ which supports standard browser functionality (e.g., dom manipulation, html5 canvas, cookies, local storage, etc.).
 
 scriptVersion(int version) : boolean
      Checks if the webview is running on a specific version.

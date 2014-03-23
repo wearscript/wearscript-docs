@@ -1,5 +1,12 @@
 GDK Cards
 =========
+.. raw:: html
+
+  <div style="position: relative;margin-bottom: 30px;padding-bottom: 56.25%;padding-top: 30px; height: 0; overflow: hidden;">
+    <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="http://www.youtube.com/embed/ohiSWhag-jE" frameborder="0"></iframe>
+  </div>
+
+
 WearScript uses an abstraction called a CardTree that allows for a hierarchy of cards where a node in the tree can optionally have either a menu or another set of cards beneath it and every card can have a tap/select callback.  The syntax is overloaded to make common functionality concise.
 
 Examples

@@ -47,3 +47,71 @@ Neopixel
 ---------
 
 Neopixels are independently addressable LED strips that can display multiple colors, change brightness, and display patterns over time.  Using the included neopixel .ino file and sample script https://api.wearscript.com/#/gist/9390329/glass.html complex patterns can be programmed and executed on the Arduino including loops.
+
+
+Powertail
+---------
+The model used is https://www.adafruit.com/products/268#Description with an Arduino Uno
+
++--------------------------+---------------------------+-------------------------------+
+| 1: +in connected to 3.3v | 2: -in connected to pin 4 | 3: Ground connected to ground |
++--------------------------+---------------------------+-------------------------------+
+
+Bluetooth version
+See the :ref:`bluetooth` page for setup details (same pins).
+
+
+.. code-block:: guess
+
+    #include <SoftwareSerial.h>
+
+    SoftwareSerial mySerial(3, 2); // RX, TX
+
+    void setup()  
+    {
+      Serial.begin(57600);
+      while (!Serial) {
+      }
+      mySerial.begin(9600);
+      pinMode(4, OUTPUT);
+    }
+
+    void loop()
+    {
+      if (mySerial.available()) {
+	char c = mySerial.read();
+	if (c == '0')
+	  digitalWrite(4, 0);
+	else
+	  digitalWrite(4, 1);
+	Serial.write(c);
+      }
+      if (Serial.available()) {
+	delay(10); // HACK
+	mySerial.write(Serial.read());
+      }
+    }
+
+.. code-block:: guess
+
+    <html style="width:100%; height:100%; overflow:hidden">
+    <body style="width:100%; height:100%; overflow:hidden; margin:0">
+    <script>
+    function main() {
+	if (WS.scriptVersion(1)) return;
+	WS.serverConnect('{{WSUrl}}', function () {
+	    WS.gestureCallback('onGestureSWIPE_RIGHT', function () {
+		WS.bluetoothWrite('20:13:12:05:04:11', '1');
+	    });
+	    WS.gestureCallback('onGestureSWIPE_LEFT', function () {
+		WS.bluetoothWrite('20:13:12:05:04:11', '0');
+	    });
+	    WS.bluetoothList(function (devices) {
+		WS.log(JSON.stringify(devices));
+	    });
+	});
+    }
+    window.onload = main;
+    </script>
+    </body>
+    </html>
