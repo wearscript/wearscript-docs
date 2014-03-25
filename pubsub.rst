@@ -170,19 +170,22 @@ Example: Image/Sensor Stream
 	 Manager, err := wearscript.ConnectionManagerFactory("server", "demo")
 	 if err != nil {
 	    return
-	    }
-	    Manager.Subscribe("image", func (c string, dataBin []byte, data []interface{}) {
-				       timestamp := data[1].(float64)
-						 image := data[2].(string)
-						       fmt.Println(fmt.Sprintf("Image[%s] Time[%f] Bytes[%d]", c, timestamp, len(image)))
-						       })
-						       Manager.Subscribe("sensors", func (c string, dataBin []byte, data []interface{}) {
-										    names := data[1]
-											  samples := data[2]
-												  fmt.Println(fmt.Sprintf("Sensors[%s] Names[%v] Samples[%v]", c, names, samples))
-												  })
-												  conn, _ := Manager.NewConnection(ws)
-												  Manager.HandlerLoop(conn)
+	 }
+	 
+	 Manager.Subscribe("image", func (c string, dataBin []byte, data []interface{}) {
+	     timestamp := data[1].(float64)
+	     image := data[2].(string)
+	     fmt.Println(fmt.Sprintf("Image[%s] Time[%f] Bytes[%d]", c, timestamp, len(image)))
+	 })
+	 
+	 Manager.Subscribe("sensors", func (c string, dataBin []byte, data []interface{}) {
+	     names := data[1]
+	     samples := data[2]
+	     fmt.Println(fmt.Sprintf("Sensors[%s] Names[%v] Samples[%v]", c, names, samples))
+	 })
+	 
+	 conn, _ := Manager.NewConnection(ws)
+	 Manager.HandlerLoop(conn)
     }
 
     func main() {
@@ -190,7 +193,7 @@ Example: Image/Sensor Stream
 	 err := http.ListenAndServe(":8081", nil)
 	 if err != nil {
 	    fmt.Println("Serve error")
-	    }
+	 }
     }
 
 
