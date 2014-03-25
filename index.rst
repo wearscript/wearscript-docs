@@ -83,6 +83,7 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
     ar
     eyetracking
     myo
+    pebble
     tips
     wire
     contributing
