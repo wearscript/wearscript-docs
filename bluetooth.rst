@@ -1,6 +1,18 @@
 Bluetooth
 =========
 
+Any -> Glass
+------------
+
+If you are running a WearScript on a device that is paired to Glass, you are able to send gestures to Glass just like the MyGlass app. If you want to setup the socket before you actually send a command, use INIT.
+
+.. code-block:: javascript
+
+  WS.control("TAP");
+  WS.control("SWIPE_LEFT");
+  WS.control("SWIPE_RIGHT");
+  WS.control("SWIPE_DOWN");
+  WS.control("INIT");
 
 Keyboard -> Glass
 ------------------
