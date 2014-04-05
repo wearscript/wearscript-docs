@@ -17,7 +17,7 @@ displayWarpView([Array hPhotoToGlass]) : void
 
 .. raw:: html
 
-    <script src="https://gist.github.com/9302540.js?file=glass.html">
+    <script src="https://gist.github.com/9302540.js?file=glass.html"></script>
 
 warpPreviewSampleGlass([Function callback]) : void
   Publishes the next preview image it gets, it is used to match subsequent images to, a local copy is stored as the overlay and can be replaced using WS.warpSetOverlay.
@@ -29,4 +29,4 @@ warpSetOverlay(String imageb64) : void
 
 .. raw:: html
 
-    <script src="https://gist.github.com/9876016.js?file=glass.html">
+    <script src="https://gist.github.com/9876016.js?file=glass.html"></script>
