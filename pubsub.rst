@@ -21,7 +21,7 @@ Example: Ping/Pong
 	if (WS.scriptVersion(1)) return;
 	WS.serverConnect('{{WSUrl}}', function () {
 	    WS.subscribe('pong', function (chan, timestamp0, timestamp1, groupDevice) {
-	        WS.log('Pong: ' + groupDevice + ': Remote - Glass0: ' + (timestamp1 - timestamp0) + ' Glass1 - Glass0: ' + ((new Date).getTime() / 1000) - timestamp0);
+                WS.log('Pong: ' + groupDevice + ': Remote - Glass0: ' + (timestamp1 - timestamp0) + ' Glass1 - Glass0: ' + (((new Date).getTime() / 1000) - timestamp0));
 	    });
 	    setInterval(function () {
 	        WS.publish('ping', 'pong', (new Date).getTime() / 1000);
