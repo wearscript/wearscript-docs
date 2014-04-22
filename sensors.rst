@@ -20,6 +20,11 @@ sensorOn(String type, double period, [Function callback]) : void
                 - pupil: Values [pupil_y, pupil_x, radius]
                 - gps: Values [lat, lon]
 
+iBeacons
+--------
+
+iBeacons work and should be first turned on with sensorOn(WS.sensor('ibeacon'), 1000). Then, you can either subscribe to all iBeacon events on the channel 'ibeacon', or append your iBeacon UUID: 'ibeacon:2f234454-cf6d-4a0f-adf2-f4911ba9ffa6'. The fields in the callback are channel_name, UUID, powerLevel, majorNum, and minorNum.
+
 Sensor Types
 ------------
 Sensors have unique names and integer types that are used internally and can be used as WS.sensor('light') which returns 5.  The standard Android sensor types are positive and custom types are given negative numbers.
@@ -27,6 +32,7 @@ Sensors have unique names and integer types that are used internally and can be 
 ===================  =======
       Type            Value
 ===================  =======
+ibeacon               -8
 pupil                 -2
 gps                   -1
 accelerometer         1
