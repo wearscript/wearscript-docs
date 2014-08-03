@@ -6,7 +6,7 @@ One-Line Installer(Linux/OSX): Execute the following in a shell to install WearS
 
 .. code-block:: bash
 
-  curl -L http://goo.gl/nRjW6y > install.py && python install.py
+  curl -L http://goo.gl/U1RIHm > install.py && python install.py
 
 .. raw:: html
 
