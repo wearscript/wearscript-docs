@@ -1,8 +1,8 @@
 Myo
 ===
-The Myo uses bluetooth-le and can only be connected to Android Kit Kat devices (e.g., Nexus 5).  As the SDK is not publicly available you'll need to get the Myo binary of WearScript (currently a private branch) from us.  If you are part of the Myo Alpha program we can add you to the repository.
+The Myo uses bluetooth-le and can only be connected to Android Kit Kat devices (e.g., Nexus 5).
 
-This demonstrates training the Myo, saying out loud which gesture is performed.  NONE is produced after a gesture is stopped (e.g., a clenched fist will stay FIST until it is released and then will be NONE).  It also streams the accelerometer, orientation, and gyro to the sensors tab (see WS.dataLog).
+This demonstrates pairing the Myo, saying out loud which gesture is performed. Remember, the setup gesture must be performed every time the device is paired before it will return data. NONE is produced after a gesture is stopped (e.g., a clenched fist will stay FIST until it is released and then will be NONE).  It also streams the accelerometer, orientation, and gyro to the sensors tab (see WS.dataLog).
 
 .. code-block:: html
 
@@ -10,8 +10,10 @@ This demonstrates training the Myo, saying out loud which gesture is performed. 
     <body style="width:100%; height:100%; overflow:hidden; margin:0">
     <script>
     function server() {
-	WS.myoTrain()
-	// Currently one of {NONE, FIST, FINGERS_SPREAD, WAVE_IN, WAVE_OUT}
+	WS.myoPair(function () {
+      WS.say("paired myo");
+  });
+	// Currently one of {NONE, FIST, FINGERS_SPREAD, WAVE_IN, WAVE_OUT, THUMB_TO_PINKY, ARM_RECOGNIZED, ARM_LOST}
 	WS.gestureCallback('onMyo', function (x) {
 	    WS.say(x);
 	});
