@@ -23,7 +23,9 @@ sensorOn(String type, double period, [Function callback]) : void
 iBeacons
 --------
 
-iBeacons work and should be first turned on with sensorOn(WS.sensor('ibeacon'), 1000). Then, you can either subscribe to all iBeacon events on the channel 'ibeacon', or append your iBeacon UUID: 'ibeacon:2f234454-cf6d-4a0f-adf2-f4911ba9ffa6'. The fields in the callback are channel_name, UUID, powerLevel, majorNum, and minorNum.
+WS.beacon(fn range, fn enter, fn exit) : void
+    Starts scanning for beacons and performs callbacks.
+    The fields in the callback are channel_name, UUID, powerLevel, majorNum, and minorNum.
 
 Sensor Types
 ------------
